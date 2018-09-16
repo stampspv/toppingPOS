@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.GaussianBlur?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('C:\Users\MickeyKan\Desktop\SEPOS\posTopping\src\main\resources\image\large (2).jpg');" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="POS.Controller">
+   <children>
+      <ImageView fitHeight="393.0" fitWidth="594.0" layoutX="4.0" layoutY="4.0">
+         <effect>
+            <GaussianBlur />
+         </effect>
+         <image>
+            <Image url="@image/large.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="259.0" layoutY="252.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: #c91a1a;" text="LOGIN" textFill="#e8e8e8">
+         <font>
+            <Font name="Century Gothic" size="16.0" />
+         </font>
+         <effect>
+            <Glow level="0.68" />
+         </effect>
+      </Button>
+      <PasswordField layoutX="159.0" layoutY="201.0" prefHeight="35.0" prefWidth="257.0">
+         <effect>
+            <DropShadow />
+         </effect>
+      </PasswordField>
+   </children>
+</AnchorPane>
