@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.GaussianBlur?>
@@ -10,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('C:\Users\MickeyKan\Desktop\SEPOS\posTopping\src\main\resources\image\large (2).jpg');" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="POS.Controller">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('C:\Users\MickeyKan\Desktop\SEPOS\posTopping\src\main\resources\image\large (2).jpg');" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="POS.Main">
    <children>
       <ImageView fitHeight="393.0" fitWidth="594.0" layoutX="4.0" layoutY="4.0">
          <effect>
@@ -20,7 +21,7 @@
             <Image url="@image/large.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="259.0" layoutY="252.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: #c91a1a;" text="LOGIN" textFill="#e8e8e8">
+      <Button layoutX="259.0" layoutY="252.0" mnemonicParsing="false" onAction="#handleOnButtonAction" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: #c91a1a;" text="LOGIN" textFill="#e8e8e8">
          <font>
             <Font name="Century Gothic" size="16.0" />
          </font>
@@ -28,10 +29,20 @@
             <Glow level="0.68" />
          </effect>
       </Button>
-      <PasswordField layoutX="159.0" layoutY="201.0" prefHeight="35.0" prefWidth="257.0">
+      <PasswordField fx:id="inputCode" layoutX="159.0" layoutY="201.0" prefHeight="35.0" prefWidth="257.0" promptText="Code login">
          <effect>
             <DropShadow />
          </effect>
       </PasswordField>
+      <Label layoutX="147.0" layoutY="154.0" text="Please enter you code to login." textAlignment="CENTER" textFill="WHITE">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="incorrctMsg" alignment="CENTER" contentDisplay="CENTER" layoutX="173.0" layoutY="299.0" prefHeight="13.0" prefWidth="257.0" text="Incorrect Code Login , Please try agian" textAlignment="CENTER" textFill="WHITE" underline="true" visible="false">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
