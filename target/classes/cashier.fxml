@@ -14,14 +14,14 @@
 
 <AnchorPane prefHeight="590.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="POS.Controller">
    <children>
-      <Label layoutX="33.0" layoutY="2.0" prefHeight="55.0" prefWidth="197.0" text="POS TOPPING">
+      <Label alignment="CENTER" layoutX="17.0" layoutY="14.0" prefHeight="55.0" prefWidth="197.0" text="Toping POS">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
       <VBox layoutX="16.0" layoutY="96.0" prefHeight="436.0" prefWidth="199.0">
          <children>
-            <ListView fx:id="oldOrderList" prefHeight="440.0" prefWidth="199.0" />
+            <ListView fx:id="oldOrderList" onMouseClicked="#handleMouseClick" prefHeight="440.0" prefWidth="199.0" />
          </children>
       </VBox>
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="69.0" prefHeight="22.0" prefWidth="194.0" text="Orders" textAlignment="CENTER" underline="true">
@@ -29,7 +29,7 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <GridPane layoutX="237.0" layoutY="49.0" prefHeight="463.0" prefWidth="493.0">
+      <GridPane fx:id="newOrderZone" layoutX="237.0" layoutY="49.0" prefHeight="463.0" prefWidth="493.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -98,7 +98,7 @@
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="7" />
          </children>
       </GridPane>
-      <Button layoutX="779.0" layoutY="535.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="178.0" text="CHECKOUT">
+      <Button layoutX="761.0" layoutY="480.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="121.0" style="-fx-background-color: #03db00;" text="Checkout" textFill="WHITE">
          <font>
             <Font size="16.0" />
          </font>
@@ -119,9 +119,18 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Label prefHeight="17.0" prefWidth="35.0" text="Label" />
-            <Label text="Label" GridPane.columnIndex="1" GridPane.halignment="RIGHT" />
+            <Label prefHeight="17.0" prefWidth="84.0" text="Total :" />
+            <Label alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="92.0" text="Label" textAlignment="RIGHT" textFill="#ff0404" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+               <font>
+                  <Font size="19.0" />
+               </font></Label>
          </children>
       </GridPane>
+      <Button fx:id="newOrderBTN" layoutX="804.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#clickToNewOrder" prefHeight="38.0" prefWidth="108.0" text="New Order" />
+      <Button layoutX="882.0" layoutY="480.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="73.0" style="-fx-background-color: red;" text="Reset" textFill="WHITE">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

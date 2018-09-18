@@ -1,9 +1,10 @@
 package POS;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.Connection;
@@ -25,16 +26,21 @@ public class Controller {
     private Label loginAs;
 
     @FXML
+    private GridPane newOrderZone;
+
+    @FXML
+    private Button newOrderBTN;
+
+    @FXML
     public void initialize() {
-        if (this.status == 1){
+        if (this.status == 1) {
             connect();
             System.out.println("> Passing");
-            loginAs.setText("Login as : "+this.nameLogin);
+            loginAs.setText("Login as : " + this.nameLogin);
             oldOrderList.getItems().add("Stamp");
-            oldOrderList.getItems().add("Stamp");
-            oldOrderList.getItems().add("Stamp");
-            oldOrderList.getItems().add("Stamp");
-            oldOrderList.getItems().add("Stamp");
+            oldOrderList.getItems().add("Karn");
+            oldOrderList.getItems().add("Armean");
+            oldOrderList.getItems().add("Nut");
         }
     }
 
@@ -54,7 +60,7 @@ public class Controller {
             String url = "jdbc:sqlite:db.sqlite";
             conn = DriverManager.getConnection(url);
             System.out.println("> Connection to SQLite has been successfully.");
-            String sql = "SELECT * FROM userLogin WHERE codeLogin = "+this.getCodeLogin()+";";
+            String sql = "SELECT * FROM userLogin WHERE codeLogin = " + this.getCodeLogin() + ";";
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             nameLogin = rs.getString(2);
@@ -72,5 +78,17 @@ public class Controller {
 
         return conn;
     }
+    @FXML
+    void clickToNewOrder(MouseEvent event) {
+        newOrderZone.setVisible(true);
+        System.out.println("> You clicked on New Order!!");
+    }
+
+    @FXML
+    public void handleMouseClick(MouseEvent mouseEvent) {
+        newOrderZone.setVisible(false);
+        System.out.println("> You clicked on " + oldOrderList.getSelectionModel().getSelectedItem());
+    }
 }
+
 

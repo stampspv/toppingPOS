@@ -24,6 +24,7 @@ public class Main extends Application {
 
     @FXML
     private PasswordField inputCode;
+
     @FXML
     private Label incorrctMsg;
 
