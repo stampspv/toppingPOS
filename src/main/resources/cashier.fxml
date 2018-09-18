@@ -11,20 +11,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane prefHeight="600.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="POS.Controller">
    <children>
-      <Label layoutX="277.0" layoutY="14.0" prefHeight="55.0" prefWidth="197.0" text="POS TOPPING">
+      <Label layoutX="33.0" layoutY="2.0" prefHeight="55.0" prefWidth="197.0" text="POS TOPPING">
          <font>
             <Font size="29.0" />
          </font>
       </Label>
-      <VBox layoutX="1.0" layoutY="96.0" prefHeight="470.0" prefWidth="214.0">
+      <VBox layoutX="16.0" layoutY="96.0" prefHeight="436.0" prefWidth="199.0">
          <children>
-            <ListView prefHeight="472.0" prefWidth="214.0" />
+            <ListView fx:id="oldOrderList" prefHeight="440.0" prefWidth="199.0" />
          </children>
       </VBox>
-      <Label layoutX="64.0" layoutY="69.0" text="OLD ORDER">
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="17.0" layoutY="69.0" prefHeight="22.0" prefWidth="194.0" text="Orders" textAlignment="CENTER" underline="true">
          <font>
             <Font size="17.0" />
          </font>
@@ -54,7 +53,6 @@
             <ImageView fitHeight="100.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true" GridPane.rowIndex="1" />
             <ImageView fitHeight="101.0" fitWidth="109.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <ImageView fitHeight="101.0" fitWidth="108.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="2" GridPane.rowIndex="1" />
-            <ImageView fitHeight="103.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="3" GridPane.rowIndex="1" />
             <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Button" />
             <ImageView fitHeight="100.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true" />
          </children>
@@ -100,5 +98,7 @@
             <Font size="16.0" />
          </font>
       </Button>
+      <Label fx:id="loginAs" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="-2.0" layoutY="546.0" prefHeight="17.0" prefWidth="128.0" text="Login as :  " textAlignment="RIGHT" wrapText="true" />
+      <Button layoutX="137.0" layoutY="542.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="79.0" text="Logout" />
    </children>
 </AnchorPane>

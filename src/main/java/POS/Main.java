@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.Connection;
@@ -42,7 +41,7 @@ public class Main extends Application {
         try {
             String url = "jdbc:sqlite:db.sqlite";
             conn = DriverManager.getConnection(url);
-            System.out.println("Connection to SQLite has been established.");
+            System.out.println("Connection to SQLite has been successfully.");
             String sql = "SELECT * FROM userLogin;";
             stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
@@ -79,20 +78,22 @@ public class Main extends Application {
         loginloop:
         for (String object: allLogin) {
             if (inputCode.getText().equals(object)){
-                System.out.println("Match");
                 incorrctMsg.setText("Login...");
                 Stage stage = (Stage) inputCode.getScene().getWindow();
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/cashier.fxml")) ;
-                stage.setScene(new Scene((Parent) loader.load(),900,700));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/cashier.fxml"));
+                stage.setScene(new Scene((Parent) loader.load(),750,600));
+                Controller controller = (Controller) loader.getController();
+                controller.setCodeLogin(inputCode.getText());
+                controller.initialize();
                 stage.setTitle("Topping POS");
                 stage.show();
-
                 break loginloop;
             }
         }
         inputCode.setText("");
         incorrctMsg.setVisible(true);
     }
+
 
 
 }
