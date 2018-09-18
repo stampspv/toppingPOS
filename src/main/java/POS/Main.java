@@ -81,7 +81,7 @@ public class Main extends Application {
                 incorrctMsg.setText("Login...");
                 Stage stage = (Stage) inputCode.getScene().getWindow();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/cashier.fxml"));
-                stage.setScene(new Scene((Parent) loader.load(),750,600));
+                stage.setScene(new Scene((Parent) loader.load(),1000,600));
                 Controller controller = (Controller) loader.getController();
                 controller.setCodeLogin(inputCode.getText());
                 controller.initialize();

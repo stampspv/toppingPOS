@@ -9,8 +9,5 @@
         <module name="posTopping" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="posTopping" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>
