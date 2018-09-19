@@ -33,6 +33,7 @@ public class Main extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/login.fxml"));
         primaryStage.setTitle("Topping POS");
         primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setResizable(false);
         primaryStage.show();
 
     }
@@ -75,7 +76,7 @@ public class Main extends Application {
 
     }
     @FXML
-    private void handleOnButtonAction(ActionEvent event) throws IOException {
+    private void handleOnButtonAction(ActionEvent event) throws IOException, SQLException {
         loginloop:
         for (String object: allLogin) {
             if (inputCode.getText().equals(object)){
@@ -87,6 +88,7 @@ public class Main extends Application {
                 controller.setCodeLogin(inputCode.getText());
                 controller.initialize();
                 stage.setTitle("Topping POS");
+                stage.setResizable(false);
                 stage.show();
                 break loginloop;
             }
