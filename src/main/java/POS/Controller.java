@@ -190,6 +190,7 @@ public class Controller {
     @FXML
     void clickToNewOrder(MouseEvent event) {
         neworder = 0;
+        option = 3;
         toppingAdd.clear();
         summaryZone.getItems().clear();
         newOrderPrice = Float.valueOf(0);
@@ -203,6 +204,7 @@ public class Controller {
     public void handleMouseClick(MouseEvent mouseEvent) {
         newOrderZone.setVisible(false);
         neworder = 0;
+        option = 3;
         toppingAdd.clear();
         summaryZone.getItems().clear();
         newOrderPrice = Float.valueOf(0);
@@ -222,7 +224,7 @@ public class Controller {
         // new order
         msgOrder.setText("");
         neworder = 1;
-        option = 0;
+        option = 3;
         summaryZone.getItems().clear();
         newOrderPrice = Float.valueOf(0);
         newOrderSave = Float.valueOf(0);
@@ -307,12 +309,8 @@ public class Controller {
             newOrderZone.setVisible(true);
         }else{
             Date date = new Date();
-            System.out.println(date);
-            System.out.println(nameLogin);
-            System.out.println(newOrderPrice);
-            System.out.println(mainProductSelect);
-            System.out.println(option);
-            System.out.println(toppingAdd);
+            Order order = new Order(date,nameLogin,mainProductSelect,option,toppingAdd,newOrderPrice);
+            System.out.println(order.toString());
         }
 
 
@@ -321,6 +319,7 @@ public class Controller {
     @FXML
     void resetAll(MouseEvent event) {
         neworder = 0;
+        option = 3;
         toppingAdd.clear();
         summaryZone.getItems().clear();
         newOrderPrice = Float.valueOf(0);
