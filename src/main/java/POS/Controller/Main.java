@@ -1,4 +1,4 @@
-package POS;
+package POS.Controller;
 
 import javafx.application.Application;
 import javafx.fxml.FXML;

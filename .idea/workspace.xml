@@ -2,11 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b02cebcc-9d8e-47f5-9bb9-2ac45ca1ce7d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/pos/.gitattributes" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/pos/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/POS/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/99ad0750-eb95-409e-b87c-31ca138aa257.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/99ad0750-eb95-409e-b87c-31ca138aa257.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/POS/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POS/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/POS/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POS/Controller/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/POS/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POS/Controller/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/POS/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/POS/Model/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/cashier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/cashier.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/cashier.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/cashier.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/login.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -59,7 +67,14 @@
         <item name="db" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
-        <item name="orsers: table" type="ffe0bd85:SqliteImplModel$Table" />
+        <item name="orders: table" type="ffe0bd85:SqliteImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="90513b60:SqliteImplModel$Schema" />
+        <item name="topping: table" type="ffe0bd85:SqliteImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -103,42 +118,47 @@
     <session id="131772159">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
+          <entry key="project.closed" value="5" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.open.time.7" value="1" />
+          <entry key="project.open.time.8" value="1" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="fxml" value="5" />
-          <entry key="java" value="5" />
-          <entry key="mainproduct" value="1" />
+          <entry key="fxml" value="6" />
+          <entry key="java" value="8" />
+          <entry key="mainproduct" value="2" />
+          <entry key="orders" value="4" />
+          <entry key="orsers" value="2" />
           <entry key="topping" value="2" />
+          <entry key="userlogin" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Database Element" value="3" />
-          <entry key="JAVA" value="5" />
-          <entry key="XML" value="5" />
+          <entry key="Database Element" value="12" />
+          <entry key="JAVA" value="8" />
+          <entry key="XML" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cell" value="140" />
+          <entry key="cell" value="167" />
           <entry key="fxml" value="1" />
-          <entry key="java" value="1937" />
+          <entry key="java" value="3183" />
           <entry key="sql" value="127" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1937" />
-          <entry key="SQL" value="127" />
-          <entry key="Scratch" value="140" />
+          <entry key="JAVA" value="3182" />
+          <entry key="SQL" value="128" />
+          <entry key="Scratch" value="167" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -147,27 +167,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/POS/Controller.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/POS/Controller/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="283">
-              <caret line="311" column="37" selection-start-line="311" selection-start-column="37" selection-end-line="311" selection-end-column="37" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#576#584#0" expanded="true" />
-                <element signature="e#799#807#0" expanded="true" />
-                <element signature="e#865#873#0" expanded="true" />
-                <element signature="e#733#740#0" expanded="true" />
-                <element signature="e#981#988#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/POS/Order.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+            <state relative-caret-position="159">
+              <caret line="182" column="33" lean-forward="true" selection-start-line="182" selection-start-column="33" selection-end-line="182" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -197,6 +200,10 @@
       <find>reset</find>
       <find>this.</find>
       <find>option</find>
+      <find>order</find>
+      <find>select</find>
+      <find>visi</find>
+      <find>setImage</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -206,10 +213,12 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/main/java/POS/ListViewHandlerImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/cashier.fxml" />
         <option value="$PROJECT_DIR$/src/main/java/POS/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/POS/Order.java" />
         <option value="$PROJECT_DIR$/src/main/java/POS/Controller.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/cashier.fxml" />
+        <option value="$PROJECT_DIR$/src/main/java/POS/Model/Order.java" />
+        <option value="$PROJECT_DIR$/src/main/java/POS/Controller/Controller.java" />
       </list>
     </option>
   </component>
@@ -237,6 +246,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -275,6 +287,24 @@
               <item name="toppingPOS" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="POS" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="posTopping" type="b2602c69:ProjectViewProjectNode" />
+              <item name="toppingPOS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="POS" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="posTopping" type="b2602c69:ProjectViewProjectNode" />
+              <item name="toppingPOS" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -289,15 +319,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537357081740" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537449638887" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -323,10 +350,14 @@
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="POS.Main" />
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <option name="INCLUDE_PROVIDED_SCOPE" value="true" />
+      <option name="MAIN_CLASS_NAME" value="POS.Controller.Main" />
+      <module name="toppingPOS" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="POS.*" />
+          <option name="PATTERN" value="POS.Model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -348,37 +379,39 @@
       <workItem from="1537256993576" duration="3000" />
       <workItem from="1537259170855" duration="14000" />
       <workItem from="1537282572680" duration="3184000" />
-      <workItem from="1537334647558" duration="16972000" />
+      <workItem from="1537334647558" duration="17912000" />
+      <workItem from="1537427889509" duration="5939000" />
+      <workItem from="1537447102784" duration="2487000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20173000" />
+    <option name="totallyTimeSpent" value="29539000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1440" height="841" extended-state="6" />
+    <frame x="0" y="22" width="1440" height="841" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24678111" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2539342" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
-      <window_info anchor="bottom" id="Database Console" weight="0.32977304" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.26168224" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.26168224" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.32977304" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32843792" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Database Console" order="12" weight="0.32977304" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -387,7 +420,7 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info anchor="right" id="Database" order="8" visible="true" weight="0.3297568" />
+      <window_info active="true" anchor="right" id="Database" order="8" visible="true" weight="0.18383405" />
       <window_info anchor="right" id="Coverage" order="9" side_tool="true" weight="0.3297568" />
     </layout>
   </component>
@@ -399,20 +432,6 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/POS/ListViewHandlerImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/POS/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="22" column="72" lean-forward="true" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://99ad0750-eb95-409e-b87c-31ca138aa257/schema/main/table/mainproduct">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://99ad0750-eb95-409e-b87c-31ca138aa257/schema/main/table/topping">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -427,35 +446,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/cashier.fxml">
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-736">
-          <caret line="84" column="151" lean-forward="true" selection-start-line="84" selection-start-column="151" selection-end-line="84" selection-end-column="151" />
+    <entry file="das://99ad0750-eb95-409e-b87c-31ca138aa257/schema/main/table/orsers" />
+    <entry file="das://99ad0750-eb95-409e-b87c-31ca138aa257/schema/main/table/userlogin">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/POS/Order.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/cashier.fxml">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="das://99ad0750-eb95-409e-b87c-31ca138aa257/schema/main/table/mainproduct">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/POS/Model/Order.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="36" column="18" selection-start-line="36" selection-start-column="18" selection-end-line="36" selection-end-column="18" />
+        <state relative-caret-position="955">
+          <caret line="90" column="26" lean-forward="true" selection-start-line="90" selection-start-column="26" selection-end-line="90" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/POS/Controller.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/POS/Controller/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="311" column="37" selection-start-line="311" selection-start-column="37" selection-end-line="311" selection-end-column="37" />
+        <state relative-caret-position="105">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://99ad0750-eb95-409e-b87c-31ca138aa257/schema/main/table/orders">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/POS/Controller/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="182" column="33" lean-forward="true" selection-start-line="182" selection-start-column="33" selection-end-line="182" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#576#584#0" expanded="true" />
-            <element signature="e#799#807#0" expanded="true" />
-            <element signature="e#865#873#0" expanded="true" />
-            <element signature="e#733#740#0" expanded="true" />
-            <element signature="e#981#988#0" expanded="true" />
           </folding>
         </state>
       </provider>

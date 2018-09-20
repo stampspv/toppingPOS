@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('C:\Users\MickeyKan\Desktop\SEPOS\posTopping\src\main\resources\image\large (2).jpg');" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="POS.Main">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('C:\Users\MickeyKan\Desktop\SEPOS\posTopping\src\main\resources\image\large (2).jpg');" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="POS.Controller.Main">
    <children>
       <ImageView fitHeight="393.0" fitWidth="594.0" layoutX="4.0" layoutY="4.0">
          <effect>

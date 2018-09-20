@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="590.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="POS.Controller">
+<AnchorPane prefHeight="590.0" prefWidth="992.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="POS.Controller.Controller">
    <children>
       <Label alignment="CENTER" layoutX="17.0" layoutY="14.0" prefHeight="55.0" prefWidth="197.0" text="Toping POS">
          <font>
@@ -29,7 +29,7 @@
             <Font size="17.0" />
          </font>
       </Label>
-      <GridPane fx:id="newOrderZone" layoutX="237.0" layoutY="49.0" prefHeight="480.0" prefWidth="493.0">
+      <GridPane fx:id="newOrderZone" layoutX="237.0" layoutY="49.0" prefHeight="480.0" prefWidth="493.0" visible="false">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -119,8 +119,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Label fx:id="loginAs" alignment="TOP_RIGHT" contentDisplay="RIGHT" layoutX="-2.0" layoutY="546.0" prefHeight="17.0" prefWidth="128.0" text="Login as :  " textAlignment="RIGHT" wrapText="true" />
-      <Button layoutX="137.0" layoutY="542.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="79.0" text="Logout" />
+      <Label fx:id="loginAs" contentDisplay="RIGHT" layoutX="17.0" layoutY="548.0" prefHeight="17.0" prefWidth="128.0" text="Login as :  " textAlignment="RIGHT" textFill="#e35b00" wrapText="true" />
       <VBox layoutX="748.0" layoutY="96.0" prefHeight="335.0" prefWidth="220.0">
          <children>
             <ListView fx:id="summaryZone" prefHeight="322.0" prefWidth="220.0" />
@@ -153,5 +152,42 @@
             <Font size="15.0" />
          </font>
       </Label>
+      <Label fx:id="msgSuccess" alignment="CENTER" layoutX="761.0" layoutY="512.0" prefHeight="19.0" prefWidth="197.0" text="Success" textFill="#00b238" visible="false" />
+      <AnchorPane fx:id="historyZone" layoutX="241.0" layoutY="95.0" prefHeight="446.0" prefWidth="495.0" visible="false">
+         <children>
+            <ImageView fx:id="historyImage" fitHeight="150.0" fitWidth="200.0" layoutX="144.0" layoutY="21.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/004.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="historyOrderID" alignment="CENTER" layoutX="10.0" layoutY="152.0" prefHeight="34.0" prefWidth="476.0" text="Order ID :" underline="true">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="historyMain" alignment="CENTER" layoutY="210.0" prefHeight="24.0" prefWidth="488.0" text="Main : " textFill="#6f0000">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="historyOption" alignment="CENTER" layoutX="2.0" layoutY="249.0" prefHeight="24.0" prefWidth="488.0" text="Option :" textFill="#6f0000">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="historyToppings" alignment="TOP_CENTER" layoutX="5.0" layoutY="289.0" prefHeight="55.0" prefWidth="488.0" text="Toppings : " textFill="#6f0000" wrapText="true">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="historyTotal" alignment="CENTER" layoutX="7.0" layoutY="344.0" prefHeight="24.0" prefWidth="488.0" text="Total Price : 30.0 Baht" textFill="RED">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <Label fx:id="historyDate" layoutX="18.0" layoutY="406.0" prefHeight="17.0" prefWidth="388.0" text="Order at : " textFill="#00138d" />
+            <Label fx:id="historyWho" alignment="CENTER_RIGHT" layoutX="162.0" layoutY="407.0" prefHeight="17.0" prefWidth="322.0" text="Order by : " textFill="#007967" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

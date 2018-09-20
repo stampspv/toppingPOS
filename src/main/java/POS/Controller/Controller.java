@@ -1,12 +1,13 @@
-package POS;
+package POS.Controller;
 
-import javafx.event.EventHandler;
+import POS.Model.Order;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import java.sql.DriverManager;
 import java.sql.Connection;
@@ -89,15 +90,44 @@ public class Controller {
     private Button btnTop4;
 
     @FXML
+    private Label msgSuccess;
+
+    @FXML
+    private AnchorPane historyZone;
+
+    @FXML
+    private Label historyOrderID;
+
+    @FXML
+    private Label historyMain;
+
+    @FXML
+    private Label historyOption;
+
+    @FXML
+    private Label historyToppings;
+
+    @FXML
+    private Label historyTotal;
+
+    @FXML
+    private Label historyDate;
+
+    @FXML
+    private Label historyWho;
+
+    @FXML
+    private ImageView historyImage;
+
+
+    @FXML
     public void initialize() {
         if (this.status == 1) {
             connect();
             System.out.println("> Passing");
+            newOrderZone.setVisible(true);
+            historyZone.setVisible(false);
             loginAs.setText("Login as : " + this.nameLogin);
-            oldOrderList.getItems().add("Stamp");
-            oldOrderList.getItems().add("Karn");
-            oldOrderList.getItems().add("Armean");
-            oldOrderList.getItems().add("Nut");
 
             // add menu
             int i =1;
@@ -172,6 +202,17 @@ public class Controller {
                 toppingPrice.add(menuPrice);
             }
 
+            // ----- Add ListView ---
+            String sqlGetOrders = "SELECT * FROM orders ORDER BY id DESC;";
+            stmt = conn.createStatement();
+            ResultSet rsGetOrder = stmt.executeQuery(sqlGetOrders);
+            while (rsGetOrder.next()) {
+                Integer orderId = rsGetOrder.getInt("id");
+                Float orderPrice = rsGetOrder.getFloat("totalPrice");
+
+                oldOrderList.getItems().add("Order : "+String.valueOf(orderId)+" [ "+orderPrice+" Baht ]");
+            }
+
 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -189,6 +230,7 @@ public class Controller {
     }
     @FXML
     void clickToNewOrder(MouseEvent event) {
+        msgSuccess.setVisible(false);
         neworder = 0;
         option = 3;
         toppingAdd.clear();
@@ -197,6 +239,7 @@ public class Controller {
         newOrderSave = Float.valueOf(0);
         totalPrice.setText("");
         newOrderZone.setVisible(true);
+        historyZone.setVisible(false);
         System.out.println("> You clicked on New Order!!");
     }
 
@@ -210,7 +253,68 @@ public class Controller {
         newOrderPrice = Float.valueOf(0);
         newOrderSave = Float.valueOf(0);
         totalPrice.setText("");
+        msgSuccess.setVisible(false);
+
         System.out.println("> You clicked on " + oldOrderList.getSelectionModel().getSelectedItem());
+        String[] getID = oldOrderList.getSelectionModel().getSelectedItem().split(" ");
+        String idOrder = getID[2];
+        historyOrderID.setText("Order ID : "+idOrder);
+        // connect
+        Connection conn = null;
+        Statement stmt = null;
+        try {
+            String url = "jdbc:sqlite:db.sqlite";
+            conn = DriverManager.getConnection(url);
+            String sqlGetOrder = "SELECT * FROM orders WHERE id = " + idOrder + ";";
+            stmt = conn.createStatement();
+            ResultSet rs = stmt.executeQuery(sqlGetOrder);
+            historyDate.setText("Order at : "+rs.getString(2));
+            historyWho.setText("Order by : "+rs.getString(3));
+            historyTotal.setText("Total Price : "+rs.getString(7)+" Baht");
+
+            String toppingList = rs.getString(6);
+
+            // Option
+            if(rs.getString(5).equals("1")){
+                historyOption.setText("Option : Sugar Free 0%");
+            }else if(rs.getString(5).equals("2")){
+                historyOption.setText("Option : Sugar Light 25%");
+            }else if(rs.getString(5).equals("3")){
+                historyOption.setText("Option : Sugar Normal 50%");
+            }else if(rs.getString(5).equals("4")){
+                historyOption.setText("Option : Sugar More 75%");
+            }
+
+            // Main
+            String idMain = rs.getString(4);
+            String sqlGetMain = "SELECT * FROM mainProduct WHERE id = " + rs.getString(4) + ";";
+            ResultSet rsMain = stmt.executeQuery(sqlGetMain);
+            historyMain.setText("Main : "+rsMain.getString(2));
+
+            // Toppings
+            char[] toppings = toppingList.toCharArray();
+            String toppingAdd = "";
+            for(char topping : toppings){
+                if (Character.isDigit(topping)){
+                    String sqlGetTopping = "SELECT * FROM topping WHERE id = " + topping + ";";
+                    ResultSet rsTop = stmt.executeQuery(sqlGetTopping);
+                    toppingAdd += rsTop.getString(2)+",";
+                }
+
+            }
+            historyToppings.setText("Toppings : "+toppingAdd);
+
+            // Image
+            String setNameMenu = "btnMenu"+idMain;
+            historyImage.setImage(new Image("image/"+setNameMenu+".png"));
+
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        historyZone.setVisible(true);
     }
 
     @FXML
@@ -222,6 +326,8 @@ public class Controller {
         Float menuPrice = allPrice.get(Integer.parseInt(menuID) -1 );
 
         // new order
+        historyZone.setVisible(false);
+        msgSuccess.setVisible(false);
         msgOrder.setText("");
         neworder = 1;
         option = 3;
@@ -241,7 +347,8 @@ public class Controller {
 
     @FXML
     void clickOption(MouseEvent mouseEvent) {
-
+        historyZone.setVisible(false);
+        msgSuccess.setVisible(false);
         String idMenu = ((Button)mouseEvent.getSource()).getId().toString();
         System.out.println("> You clicked on option : " + idMenu);
         if(neworder == 0){
@@ -264,10 +371,7 @@ public class Controller {
                 summaryZone.getItems().add("   = Sugar : More 75%");
                 option = 4;
             }
-
         }
-
-
     }
 
 
@@ -275,6 +379,8 @@ public class Controller {
     @FXML
     public void clickToResetTopping(MouseEvent mouseEvent) {
         System.out.println("> Reset Topping");
+        historyZone.setVisible(false);
+        msgSuccess.setVisible(false);
         summaryZone.getItems().remove(2,summaryZone.getItems().size());
         toppingAdd.clear();
         newOrderPrice = newOrderSave;
@@ -288,6 +394,8 @@ public class Controller {
         Float topPrice = toppingPrice.get(Integer.parseInt(menuID) - 1);
 
         // add topping
+        historyZone.setVisible(false);
+        msgSuccess.setVisible(false);
         System.out.println("> You clicked on topping id : " + idMenu + " | " + menuID + " | " + topName + " | " + topPrice);
         if (neworder == 0) {
             msgOrder.setText("Please select Main product before select option and topping.");
@@ -307,17 +415,20 @@ public class Controller {
         if(neworder==0){
             msgOrder.setText("Please select Main product and select topping.");
             newOrderZone.setVisible(true);
+            historyZone.setVisible(false);
         }else{
             Date date = new Date();
             Order order = new Order(date,nameLogin,mainProductSelect,option,toppingAdd,newOrderPrice);
-            System.out.println(order.toString());
+            System.out.println("> "+order.toString());
+            oldOrderList.getItems().add(0,"Order : "+order.getId()+" [ "+newOrderPrice+" Baht ]");
+            resetAll();
+            msgSuccess.setVisible(true);
+
         }
-
-
     }
 
-    @FXML
-    void resetAll(MouseEvent event) {
+    private void resetAll() {
+        msgSuccess.setVisible(false);
         neworder = 0;
         option = 3;
         toppingAdd.clear();
@@ -326,6 +437,21 @@ public class Controller {
         newOrderSave = Float.valueOf(0);
         totalPrice.setText("");
         newOrderZone.setVisible(true);
+        historyZone.setVisible(false);
+    }
+
+    @FXML
+    void resetAll(MouseEvent event) {
+        msgSuccess.setVisible(false);
+        neworder = 0;
+        option = 3;
+        toppingAdd.clear();
+        summaryZone.getItems().clear();
+        newOrderPrice = Float.valueOf(0);
+        newOrderSave = Float.valueOf(0);
+        totalPrice.setText("");
+        newOrderZone.setVisible(true);
+        historyZone.setVisible(false);
     }
 
 
