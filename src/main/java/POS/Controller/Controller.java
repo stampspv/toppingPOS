@@ -36,6 +36,9 @@ public class Controller {
     private Float newOrderSave = Float.valueOf(0);
 
     @FXML
+    private ImageView bgOrders;
+
+    @FXML
     private ListView<String> oldOrderList,summaryZone;
 
     @FXML
@@ -119,6 +122,17 @@ public class Controller {
     @FXML
     private ImageView historyImage;
 
+    @FXML
+    private Label activeNewOrder;
+
+    @FXML
+    private Label activeOrders;
+
+    @FXML
+    private Button ordersBTN;
+
+    @FXML
+    private Label pleaseSelect;
 
     @FXML
     public void initialize() {
@@ -128,6 +142,12 @@ public class Controller {
             newOrderZone.setVisible(true);
             historyZone.setVisible(false);
             loginAs.setText("Login as : " + this.nameLogin);
+            activeOrders.setVisible(false);
+            activeNewOrder.setVisible(true);
+            bgOrders.setVisible(false);
+            oldOrderList.setVisible(false);
+            oldOrderList.toBack();
+            pleaseSelect.setVisible(false);
 
             // add menu
             int i =1;
@@ -240,6 +260,12 @@ public class Controller {
         totalPrice.setText("");
         newOrderZone.setVisible(true);
         historyZone.setVisible(false);
+        activeOrders.setVisible(false);
+        activeNewOrder.setVisible(true);
+        bgOrders.setVisible(false);
+        oldOrderList.setVisible(false);
+        oldOrderList.toBack();
+        pleaseSelect.setVisible(false);
         System.out.println("> You clicked on New Order!!");
     }
 
@@ -254,6 +280,11 @@ public class Controller {
         newOrderSave = Float.valueOf(0);
         totalPrice.setText("");
         msgSuccess.setVisible(false);
+        activeOrders.setVisible(true);
+        activeNewOrder.setVisible(false);
+        bgOrders.setVisible(true);
+        oldOrderList.setVisible(true);
+        pleaseSelect.setVisible(false);
 
         System.out.println("> You clicked on " + oldOrderList.getSelectionModel().getSelectedItem());
         String[] getID = oldOrderList.getSelectionModel().getSelectedItem().split(" ");
@@ -334,6 +365,8 @@ public class Controller {
         summaryZone.getItems().clear();
         newOrderPrice = Float.valueOf(0);
         newOrderSave = Float.valueOf(0);
+        bgOrders.setVisible(false);
+        oldOrderList.setVisible(false);
 
         System.out.println("> You clicked on Main order id : " + idMenu + " | " + menuID + " | " + menuName + " | " +menuPrice);
         summaryZone.getItems().add(menuName + " [ "+menuPrice+" Baht ]");
@@ -416,6 +449,11 @@ public class Controller {
             msgOrder.setText("Please select Main product and select topping.");
             newOrderZone.setVisible(true);
             historyZone.setVisible(false);
+            activeOrders.setVisible(false);
+            activeNewOrder.setVisible(true);
+            bgOrders.setVisible(false);
+            oldOrderList.setVisible(false);
+            pleaseSelect.setVisible(false);
         }else{
             Date date = new Date();
             Order order = new Order(date,nameLogin,mainProductSelect,option,toppingAdd,newOrderPrice);
@@ -438,6 +476,11 @@ public class Controller {
         totalPrice.setText("");
         newOrderZone.setVisible(true);
         historyZone.setVisible(false);
+        activeOrders.setVisible(false);
+        activeNewOrder.setVisible(true);
+        bgOrders.setVisible(false);
+        oldOrderList.setVisible(false);
+        pleaseSelect.setVisible(false);
     }
 
     @FXML
@@ -452,6 +495,23 @@ public class Controller {
         totalPrice.setText("");
         newOrderZone.setVisible(true);
         historyZone.setVisible(false);
+        activeOrders.setVisible(false);
+        activeNewOrder.setVisible(true);
+        bgOrders.setVisible(false);
+        oldOrderList.setVisible(false);
+        pleaseSelect.setVisible(false);
+    }
+
+    @FXML
+    void clickToOrders(MouseEvent event) {
+        bgOrders.setVisible(true);
+        oldOrderList.setVisible(true);
+        System.out.println("> You click to show all Orders");
+        activeOrders.setVisible(true);
+        activeNewOrder.setVisible(false);
+        newOrderZone.setVisible(false);
+        historyZone.setVisible(false);
+        pleaseSelect.setVisible(true);
     }
 
 
