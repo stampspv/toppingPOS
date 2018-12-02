@@ -43,7 +43,6 @@
     <index id="16" parent="6" name="sqlite_autoindex_mainProduct_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="17" parent="6">
@@ -83,7 +82,6 @@
     </column>
     <index id="25" parent="7" name="orsers_id_uindex">
       <ColNames>id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="26" parent="7">
@@ -134,12 +132,10 @@
     <index id="37" parent="10" name="sqlite_autoindex_topping_1">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <index id="38" parent="10" name="topping_id_uindex">
       <ColNames>id</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
     <key id="39" parent="10">
@@ -164,7 +160,6 @@
     </column>
     <index id="43" parent="11" name="userLogin_codeLogin_uindex">
       <ColNames>codeLogin</ColNames>
-      <ColumnCollations></ColumnCollations>
       <Unique>1</Unique>
     </index>
   </database-model>
