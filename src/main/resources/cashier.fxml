@@ -286,5 +286,6 @@
          <font>
             <Font size="17.0" />
          </font></Label>
+      <Button fx:id="adminBTN" layoutX="8.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#clicktoAdmin" prefHeight="58.0" prefWidth="214.0" style="-fx-background-color: transperent;" />
    </children>
 </AnchorPane>

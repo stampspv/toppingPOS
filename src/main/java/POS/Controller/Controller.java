@@ -2,6 +2,8 @@ package POS.Controller;
 
 import POS.Model.Order;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -9,6 +11,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 import java.sql.DriverManager;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -338,7 +343,7 @@ public class Controller {
             // Image
             String setNameMenu = "btnMenu"+idMain;
             historyImage.setImage(new Image("image/"+setNameMenu+".png"));
-
+            conn.close();
 
         }catch (SQLException e) {
             e.printStackTrace();
@@ -456,7 +461,18 @@ public class Controller {
             pleaseSelect.setVisible(false);
         }else{
             Date date = new Date();
-            Order order = new Order(date,nameLogin,mainProductSelect,option,toppingAdd,newOrderPrice);
+
+            // Singleton Pattern ----------------
+            Order order = Order.getInstance();
+            order.setDateOrder(date);
+            order.setWho(nameLogin);
+            order.setMainProduct(mainProductSelect);
+            order.setOption(option);
+            order.setTopping(toppingAdd);
+            order.setTotalPrice(newOrderPrice);
+            order.orderHere();
+            // ----------------------------------
+
             System.out.println("> "+order.toString());
             oldOrderList.getItems().add(0,"Order : "+order.getId()+" [ "+newOrderPrice+" Baht ]");
             resetAll();
@@ -480,6 +496,7 @@ public class Controller {
         activeNewOrder.setVisible(true);
         bgOrders.setVisible(false);
         oldOrderList.setVisible(false);
+        pleaseSelect.setVisible(false);
         pleaseSelect.setVisible(false);
     }
 
@@ -514,6 +531,19 @@ public class Controller {
         pleaseSelect.setVisible(true);
     }
 
+    @FXML
+    void clicktoAdmin(MouseEvent event) throws IOException, SQLException {
+        System.out.println("> Click to Admin Zone");
+        Stage stage = (Stage) loginAs.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/admin.fxml"));
+        stage.setScene(new Scene((Parent) loader.load(),990,600));
+        AdminController controller = (AdminController) loader.getController();
+        controller.setCodeLogin(getCodeLogin());
+        controller.initialize();
+        stage.setTitle("Admin Topping POS");
+        stage.setResizable(false);
+        stage.show();
+    }
 
 }
 

@@ -116,7 +116,7 @@
             <Button fx:id="btnOption3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clickOption" style="-fx-background-color: #ffc568;" text=" Normal 50%" GridPane.columnIndex="2" GridPane.rowIndex="4" />
             <Button fx:id="btnOption4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clickOption" style="-fx-background-color: #ff794c;" text="More 75%" GridPane.columnIndex="3" GridPane.rowIndex="4" />
             <Label text="Step 3 : Toppings" textFill="WHITE" GridPane.rowIndex="5" />
-            <Button fx:id="btnTop1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clickToAddTopping" prefHeight="55.0" prefWidth="124.0" text="Button" GridPane.rowIndex="7">
+            <Button fx:id="btnTop1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clickToAddTopping" prefHeight="55.0" prefWidth="124.0" style="-fx-cursor: hand;" text="Button" GridPane.rowIndex="7">
                <textFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -128,7 +128,7 @@
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button fx:id="btnTop2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clickToAddTopping" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="7">
+            <Button fx:id="btnTop2" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clickToAddTopping" style="-fx-cursor: hand;" text="Button" GridPane.columnIndex="1" GridPane.rowIndex="7">
                <font>
                   <Font size="15.0" />
                </font>
@@ -140,7 +140,7 @@
                      </stops>
                   </LinearGradient>
                </textFill></Button>
-            <Button fx:id="btnTop3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clickToAddTopping" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="7">
+            <Button fx:id="btnTop3" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clickToAddTopping" style="-fx-cursor: hand;" text="Button" GridPane.columnIndex="2" GridPane.rowIndex="7">
                <font>
                   <Font size="15.0" />
                </font>
@@ -152,7 +152,7 @@
                      </stops>
                   </LinearGradient>
                </textFill></Button>
-            <Button fx:id="btnTop4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clickToAddTopping" prefHeight="96.0" prefWidth="155.0" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="7">
+            <Button fx:id="btnTop4" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#clickToAddTopping" prefHeight="96.0" prefWidth="155.0" style="-fx-cursor: hand;" text="Button" GridPane.columnIndex="3" GridPane.rowIndex="7">
                <textFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -286,5 +286,6 @@
          <font>
             <Font size="17.0" />
          </font></Label>
+      <Button fx:id="adminBTN" layoutX="8.0" layoutY="11.0" mnemonicParsing="false" onMouseClicked="#clicktoAdmin" prefHeight="58.0" prefWidth="214.0" style="-fx-background-color: transperent;" />
    </children>
 </AnchorPane>
