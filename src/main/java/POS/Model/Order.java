@@ -12,6 +12,7 @@ public class Order {
     private Integer option;
     private List<String> topping;
     private Float totalPrice;
+    private Integer status;
 
     private static Order instance;
 
@@ -29,6 +30,14 @@ public class Order {
 
     public void setWho(String who) {
         this.who = who;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
     }
 
     public void setMainProduct(String mainProduct) {
@@ -54,6 +63,7 @@ public class Order {
     public Connection orderHere() {
         Connection conn = null;
         Statement stmt = null;
+        this.status = 0;
         try {
             String url = "jdbc:sqlite:db.sqlite";
             conn = DriverManager.getConnection(url);
@@ -66,10 +76,19 @@ public class Order {
             prepare.setString(4, String.valueOf(this.option));
             prepare.setString(5, String.valueOf(this.topping));
             prepare.setString(6, String.valueOf(this.totalPrice));
-            if (prepare.executeUpdate() == 1){
-                System.out.println("> Add Success");
+
+            if (Integer.parseInt(this.mainProduct) > 4) {
+                this.status = 0;
+            } else if (this.totalPrice < 0) {
+                this.status = 0;
+            } else {
+                if (prepare.executeUpdate() == 1) {
+                    this.status = 1;
+                    System.out.println("> Add Success");
+                }
             }
         } catch (SQLException e) {
+            this.status = 0;
             System.out.println(e.getMessage());
         } finally {
             try {
