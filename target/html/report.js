@@ -148,7 +148,7 @@ formatter.match({
   "location": "StepDefIncome.customer_want_main(int)"
 });
 formatter.result({
-  "duration": 118700123,
+  "duration": 105445067,
   "status": "passed"
 });
 formatter.match({
@@ -161,7 +161,7 @@ formatter.match({
   "location": "StepDefIncome.customer_option(Integer)"
 });
 formatter.result({
-  "duration": 319931,
+  "duration": 70750,
   "status": "passed"
 });
 formatter.match({
@@ -174,7 +174,7 @@ formatter.match({
   "location": "StepDefIncome.customer_topping(String)"
 });
 formatter.result({
-  "duration": 3686182,
+  "duration": 694902,
   "status": "passed"
 });
 formatter.match({
@@ -187,21 +187,21 @@ formatter.match({
   "location": "StepDefIncome.price_is(Float)"
 });
 formatter.result({
-  "duration": 119454,
+  "duration": 121350,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefIncome.customer_confirm()"
 });
 formatter.result({
-  "duration": 125630555,
+  "duration": 126794200,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefIncome.record_no_confirm()"
 });
 formatter.result({
-  "duration": 4267612,
+  "duration": 3342301,
   "status": "passed"
 });
 formatter.scenario({
@@ -252,7 +252,7 @@ formatter.match({
   "location": "StepDefIncome.customer_want_main(int)"
 });
 formatter.result({
-  "duration": 175892,
+  "duration": 133018,
   "status": "passed"
 });
 formatter.match({
@@ -265,7 +265,7 @@ formatter.match({
   "location": "StepDefIncome.customer_option(Integer)"
 });
 formatter.result({
-  "duration": 57214,
+  "duration": 72989,
   "status": "passed"
 });
 formatter.match({
@@ -278,7 +278,7 @@ formatter.match({
   "location": "StepDefIncome.customer_topping(String)"
 });
 formatter.result({
-  "duration": 68377,
+  "duration": 55030,
   "status": "passed"
 });
 formatter.match({
@@ -291,21 +291,21 @@ formatter.match({
   "location": "StepDefIncome.price_is(Float)"
 });
 formatter.result({
-  "duration": 79824,
+  "duration": 81932,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefIncome.customer_confirm()"
 });
 formatter.result({
-  "duration": 901756,
+  "duration": 738671,
   "status": "passed"
 });
 formatter.match({
   "location": "StepDefIncome.record_no_confirm()"
 });
 formatter.result({
-  "duration": 37425,
+  "duration": 23495,
   "status": "passed"
 });
 });
