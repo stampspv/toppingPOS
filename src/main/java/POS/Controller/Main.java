@@ -1,5 +1,6 @@
 package POS.Controller;
 
+import animatefx.animation.Shake;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -95,6 +96,7 @@ public class Main extends Application {
         }
         inputCode.setText("");
         incorrctMsg.setVisible(true);
+        new Shake(incorrctMsg).play();
     }
 
 

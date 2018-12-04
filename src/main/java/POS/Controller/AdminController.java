@@ -182,7 +182,7 @@ public class AdminController {
     }
 
     @FXML
-    void clicktoBack(MouseEvent event) throws IOException {
+    void clicktoBack(MouseEvent event) throws IOException, InterruptedException {
         System.out.println("> Click to Admin Zone");
         Stage stage = (Stage) btnBack.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/cashier.fxml"));

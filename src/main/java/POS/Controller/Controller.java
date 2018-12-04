@@ -1,6 +1,7 @@
 package POS.Controller;
 
 import POS.Model.Order;
+import animatefx.animation.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -165,6 +166,7 @@ public class Controller {
                 ImageView image = (ImageView) scene.lookup("#"+setImageMenu);
                 image.setImage(new Image("image/"+setNameMenu+".png"));
                 btn.setText(object);
+                new FadeIn(image).playOnFinished(new FadeIn(btn)).play();
                 i++;
             }
 
@@ -178,6 +180,7 @@ public class Controller {
                 ImageView image = (ImageView) scene.lookup("#"+setImageTop);
                 image.setImage(new Image("image/"+setNameTop+".png"));
                 btn.setText(object);
+                new FadeIn(image).playOnFinished(new FadeIn(btn)).play();
                 j++;
             }
         }
@@ -234,7 +237,6 @@ public class Controller {
             while (rsGetOrder.next()) {
                 Integer orderId = rsGetOrder.getInt("id");
                 Float orderPrice = rsGetOrder.getFloat("totalPrice");
-
                 oldOrderList.getItems().add("Order : "+String.valueOf(orderId)+" [ "+orderPrice+" Baht ]");
             }
 
@@ -264,9 +266,11 @@ public class Controller {
         newOrderSave = Float.valueOf(0);
         totalPrice.setText("");
         newOrderZone.setVisible(true);
+        new FadeIn(newOrderZone).play();
         historyZone.setVisible(false);
         activeOrders.setVisible(false);
         activeNewOrder.setVisible(true);
+        new FadeIn(activeNewOrder).play();
         bgOrders.setVisible(false);
         oldOrderList.setVisible(false);
         oldOrderList.toBack();
@@ -351,6 +355,7 @@ public class Controller {
 
 
         historyZone.setVisible(true);
+        new FadeInUp(historyZone).play();
     }
 
     @FXML
@@ -437,6 +442,7 @@ public class Controller {
         System.out.println("> You clicked on topping id : " + idMenu + " | " + menuID + " | " + topName + " | " + topPrice);
         if (neworder == 0) {
             msgOrder.setText("Please select Main product before select option and topping.");
+            new Shake(msgOrder.getScene().getRoot()).play();
         } else {
             if(toppingAdd.contains(menuID.toString())){
             }else{
@@ -452,6 +458,7 @@ public class Controller {
     void comfirmOerder(MouseEvent event) {
         if(neworder==0){
             msgOrder.setText("Please select Main product and select topping.");
+            new Shake(msgOrder.getScene().getRoot()).play();
             newOrderZone.setVisible(true);
             historyZone.setVisible(false);
             activeOrders.setVisible(false);
@@ -477,6 +484,7 @@ public class Controller {
             oldOrderList.getItems().add(0,"Order : "+order.getId()+" [ "+newOrderPrice+" Baht ]");
             resetAll();
             msgSuccess.setVisible(true);
+            new SlideInUp(msgSuccess).play();
 
         }
     }
@@ -522,13 +530,18 @@ public class Controller {
     @FXML
     void clickToOrders(MouseEvent event) {
         bgOrders.setVisible(true);
+        new FadeIn(bgOrders).play();
         oldOrderList.setVisible(true);
+        new FadeIn(oldOrderList).play();
         System.out.println("> You click to show all Orders");
         activeOrders.setVisible(true);
+        new FadeIn(activeOrders).play();
         activeNewOrder.setVisible(false);
         newOrderZone.setVisible(false);
         historyZone.setVisible(false);
         pleaseSelect.setVisible(true);
+        new FadeIn(pleaseSelect).play();
+
     }
 
     @FXML
